@@ -386,3 +386,58 @@ body {
 }
 
 /*# sourceMappingURL=styles.css.map */
+
+/* Key Height Options */
+.onePtwofiveUH { height: 3.75vw; }
+.onePfiveUH { height: 4.5vw; }
+.onePsevenfiveUH { height: 5.25vw; }
+.twoPtwofiveUH { height: 6.75vw; }
+.twoPsevenfiveUH { height: 8.25vw; }
+.threeUH { height: 9vw; }
+.fourUH { height: 12vw; }
+.fiveUH { height: 15vw; }
+.sixPtwofiveUH { height: 18.75vw; }
+
+.keeb {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  gap: 6vw !important;
+  width: 100%;
+}
+
+.side-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375vw;
+  align-items: center;
+}
+
+.side-right .row {
+  flex-direction: row-reverse;
+}
+
+.row {
+  display: flex;
+  gap: 0.5vw;
+  justify-content: flex-start;
+  align-items: flex-start; /* Important for keys with different heights */
+}
+
+.row::after {
+  display: none !important;
+}
+
+/* Height Classes */
+.oneUH { height: 3vw; }
+.onePtwofiveUH { height: 3.75vw; }
+.onePfiveUH { height: 4.5vw; }
+.onePsevenfiveUH { height: 5.25vw; }
+.twoUH { height: 6vw; }
+.twoPtwofiveUH { height: 6.75vw; }
+.twoPsevenfiveUH { height: 8.25vw; }
+.threeUH { height: 9vw; }
+.fourUH { height: 12vw; }
+.fiveUH { height: 15vw; }
+.sixPtwofiveUH { height: 18.75vw; }

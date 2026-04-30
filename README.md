@@ -1,2 +1,2 @@
-# KeyboardTestingPage
-[Try it](https://danwlker.github.io/KeyboardTestingPage/)
+# KeyboardTraining Tool
+Built on Keyboard Testing Page by danwlker https://github.com/danwlker/KeyboardTestingPage/
