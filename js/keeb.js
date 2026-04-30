@@ -42,31 +42,6 @@
     }
   };
 
-  let appendToLog = function (key, pressedKey) {
-    let label = key;
-    let keyDef = getKeyDefinition(pressedKey);
-    if (keyDef) {
-      let output = getOutputForKey(keyDef);
-      if (output && output.label) {
-        label = output.label;
-      }
-    }
-
-    if (label === " ") {
-      label = "Space";
-    }
-
-    let tempListItem = document.createElement("li");
-    tempListItem.className = "logBox";
-    tempListItem.textContent = label;
-    const logger = document.getElementById("logHolder");
-    logger.appendChild(tempListItem);
-    logger.scrollLeft = logger.scrollWidth;
-    setTimeout(function () {
-      tempListItem.className = tempListItem.className + " show";
-    }, 6);
-  };
-
   let getKeyDefinition = function (code) {
     return keyDefinitions[code] || null;
   };
@@ -133,7 +108,6 @@ let refreshKeyLabels = function () {
   let downKeyDo = function (e, pressedKey) {
     let keyElement = document.getElementById(pressedKey);
     if (!keyElement) {
-      appendToLog(e.key, pressedKey);
       return;
     }
 
@@ -145,7 +119,6 @@ let refreshKeyLabels = function () {
       keyElement.classList.add("pressed");
     }
 
-    appendToLog(e.key, pressedKey);
   };
 
   let upKeyDo = function (pressedKey) {
@@ -288,7 +261,6 @@ let renderKey = function (keyDef) {
         let capsLockOn = e.getModifierState("CapsLock");
         if (capsLockOn !== true) {
           upKeyDo(pressedKey);
-          appendToLog(e.key, pressedKey);
           return;
         }
       }
@@ -308,7 +280,6 @@ let renderKey = function (keyDef) {
         if (printElement && !printElement.classList.contains("pressed")) {
           printElement.classList.add("pressed");
         }
-        appendToLog(e.key, pressedKey);
       }
 
       if (pressedKey === "CapsLock") {
