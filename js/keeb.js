@@ -8,7 +8,7 @@
   // CONFIGURATION: Set your active layout here
   // Options: window.KbdLayouts.pedanticCosmos, window.KbdLayouts.qwerty, etc.
   // ==========================================
-  const keyboardLayout = window.KbdLayouts.pedanticCosmos;
+  const keyboardLayout = window.KbdLayouts.pedantic_Cosmos;
 
   const VALID_KEY_CODE_PATTERNS = [
     /^Key[A-Z]$/,
@@ -18,7 +18,9 @@
     /^Arrow(?:Up|Down|Left|Right)$/,
     /^(CapsLock|Tab|Enter|Backspace|Space|Escape|ShiftLeft|ShiftRight|ControlLeft|ControlRight|AltLeft|AltRight|MetaLeft|MetaRight|ContextMenu|Insert|Delete|Home|End|PageUp|PageDown|PrintScreen|ScrollLock|NumLock|Power)$/,
     // Added punctuation and symbol keys
-    /^(Backquote|Minus|Equal|BracketLeft|BracketRight|Backslash|Semicolon|Quote|Comma|Period|Slash|IntlBackslash)$/
+    /^(Backquote|Minus|Equal|BracketLeft|BracketRight|Backslash|Semicolon|Colon|Quote|Comma|Period|Slash|IntlBackslash)$/,
+    // Special keys that shouldn't ever register but want to place
+    /^(L1|L2)$/
   ];
 
   let isValidKeyCode = function (code) {
