@@ -20,7 +20,7 @@
     // Added punctuation and symbol keys
     /^(Backquote|Minus|Equal|BracketLeft|BracketRight|Backslash|Semicolon|Colon|Quote|Comma|Period|Slash|IntlBackslash)$/,
     // Special keys that shouldn't ever register but want to place
-    /^(L1|L2)$/
+    /^(L1|L2|Unset)$/
   ];
 
   let isValidKeyCode = function (code) {
@@ -209,37 +209,11 @@ let renderKeyboard = function () {
     container.appendChild(leftSide);
     container.appendChild(rightSide);
 
-    switchLayer(activeLayer);
-  };
-
-  let renderLayerControls = function () {
-    const container = document.getElementById("layerControls");
-    container.innerHTML = "";
-    keyboardLayout.layers.forEach((layer) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.textContent = layer.toUpperCase();
-      button.dataset.layer = layer;
-      button.className = "layerButton";
-      if (layer === activeLayer) button.classList.add("active");
-      button.addEventListener("click", () => {
-        switchLayer(layer);
-      });
-      container.appendChild(button);
-    });
-  };
-
-  let switchLayer = function (layer) {
-    activeLayer = layer;
-    document.querySelectorAll(".layerButton").forEach((button) => {
-      button.classList.toggle("active", button.dataset.layer === layer);
-    });
-
     refreshKeyLabels();
   };
 
+
   function init() {
-    renderLayerControls();
     renderKeyboard();
     const layoutNameElement = document.getElementById("layoutName");
     if (layoutNameElement) {
@@ -288,14 +262,5 @@ let renderKeyboard = function () {
       upKeyDo(pressedKey);
     });
 
-    document.getElementById("resetButton").onclick = function () {
-      console.log("Resetting...");
-      let temp = document.querySelectorAll(".key");
-      for (let i = 0; i < temp.length; ++i) {
-        temp[i].classList.remove("raise");
-        temp[i].classList.remove("raiseBlue");
-        temp[i].classList.remove("pressed");
-      }
-    };
   }
 })(window, document, undefined);

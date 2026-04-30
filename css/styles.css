@@ -8,34 +8,12 @@ body {
   color: #eceff4;
 }
 
-.layer-controls {
-  display: flex;
-  gap: 0.8vw;
-  margin-bottom: 1.5vw;
-  flex-wrap: wrap;
-}
 .layoutName {
   font-size: 1vw;
   margin-bottom: 1vw;
   color: #d8dee9;
   text-transform: uppercase;
   letter-spacing: 0.1vw;
-}
-.layerButton {
-  font: 0.9vw Helvetica, Arial;
-  border: 0.1vw solid #acb1ba;
-  border-radius: 0.8vw;
-  color: #eceff4;
-  background-color: #434c5e;
-  padding: 0.8vw 1.2vw;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.layerButton:hover,
-.layerButton.active {
-  background-color: #5e81ac;
-  border-color: #81a1c1;
-  color: #eceff4;
 }
 
 /* Modifed row properties for side-containers */
@@ -307,35 +285,5 @@ body {
   letter-spacing: 0.05vw;
 }
 
-.sett {
-  display: flex;
-  flex-direction: row;
-  width: 70%;
-  align-items: center;
-  justify-content: center;
-  margin-top: 3vw;
-}
-
-.resetButtonStyle {
-  height: 8vw;
-  width: 8vw;
-  font: 1.4vw Verdana, Sans-Serif;
-  border-radius: 100vw;
-  background-color: #e5e9f0;
-  border: 0.1vw solid transparent;
-  color: #2e3440;
-}
-.resetButtonStyle:hover {
-  transition-duration: 0.2s;
-  transform: translateY(-0.25em);
-  background-color: #81a1c1;
-  color: #eceff4;
-}
-.resetButtonStyle:active {
-  transition-duration: 0.2s;
-  transform: translateY(0em);
-  background-color: #bf616a;
-  color: #eceff4;
-}
 
 /*# sourceMappingURL=styles.css.map */

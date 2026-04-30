@@ -1,6 +1,6 @@
 window.KbdLayouts = {
   pedantic_Cosmos: {
-    name: "PedanticCosmos",
+    name: "Pedantic_Cosmos",
     layers: ["base", "layer1", "layer2"],
     rows: [
       // Row 1: 7 keys per side
@@ -114,7 +114,7 @@ window.KbdLayouts = {
     ]
   },
   qwertyNoFRow: {
-    name: "Split QWERTY (No F-Row)",
+    name: "Standard QWERTY (110Key)",
     layers: ["base", "layer1", "layer2"],
     rows: [
       // ... your QWERTY row arrays go here similar to above, etc. ...
