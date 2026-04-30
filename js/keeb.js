@@ -179,7 +179,7 @@ let renderKey = function (keyDef) {
   };
 
   // Added Logic: Render two independent halves using side containers
-  let renderKeyboard = function () {
+let renderKeyboard = function () {
     const container = document.getElementById("keyboardContainer");
     container.innerHTML = "";
 
@@ -195,16 +195,12 @@ let renderKey = function (keyDef) {
 
       const leftRowEl = document.createElement("div");
       leftRowEl.className = "row";
-      leftKeys.forEach((keyDef) => {
-        leftRowEl.appendChild(renderKey(keyDef));
-      });
+      leftKeys.forEach((keyDef) => leftRowEl.appendChild(renderKey(keyDef)));
       leftSide.appendChild(leftRowEl);
 
       const rightRowEl = document.createElement("div");
       rightRowEl.className = "row";
-      rightKeys.forEach((keyDef) => {
-        rightRowEl.appendChild(renderKey(keyDef));
-      });
+      rightKeys.forEach((keyDef) => rightRowEl.appendChild(renderKey(keyDef)));
       rightSide.appendChild(rightRowEl);
     });
 
