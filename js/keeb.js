@@ -83,25 +83,27 @@
       ],
       // Row 5: Body Bottom
       [
-        { code: "Space", width: "oneU", labels: { base: "ScrL" } },
-        { code: "KeyL1", width: "oneU", labels: { base: "ScrR" } },
+        { code: "ScrL", width: "oneU", labels: { base: "ScrL" } },
+        { code: "ScrR", width: "oneU", labels: { base: "ScrR" } },
 
         { code: "Space", width: "oneU", labels: { base: "[" } },
         { code: "KeyL2", width: "oneU", labels: { base: "]" } }
       ],
       // Row 6: Thumb Cluster
       [
-        { isFiller: true, width: "oneU" },
-        { isFiller: true, width: "oneU" },
-        { isFiller: true, width: "oneU" },
+        { isFiller: true, width: "twoU" },
+        { isFiller: true, width: "twoU" },
+        { isFiller: true, width: "twoU" },
         { code: "Space", width: "oneU", height: "twoU", labels: { base: "Space" } },
         { code: "KeyL1", width: "oneU", labels: { base: "L1" } },
+        { isFiller: true, width: "oneU" },
 
-        { isFiller: true, width: "oneU" },
-        { isFiller: true, width: "oneU" },
-        { isFiller: true, width: "oneU" },
+        { isFiller: true, width: "twoU" },
+        { isFiller: true, width: "twoU" },
+        { isFiller: true, width: "twoU" },
         { code: "Space", width: "twoU", labels: { base: "Space" } },
-        { code: "KeyL2", width: "oneU", labels: { base: "L2" } }
+        { code: "KeyL2", width: "oneU", labels: { base: "L2" } },
+        { isFiller: true, width: "oneU" }
       ]
     ]
   };
@@ -112,6 +114,7 @@
     /^Numpad(?:[0-9]|Add|Subtract|Multiply|Divide|Decimal|Enter)$/, 
     /^F(?:[1-9]|1[0-2])$/,
     /^Arrow(?:Up|Down|Left|Right)$/,
+    /^Scr[L,R]$/,
     /^(CapsLock|Tab|Enter|Backspace|Space|Escape|ShiftLeft|ShiftRight|ControlLeft|ControlRight|AltLeft|AltRight|MetaLeft|MetaRight|ContextMenu|Insert|Delete|Home|End|PageUp|PageDown|PrintScreen|ScrollLock|NumLock|Power|Equal|Minus|Backslash|Semicolon|Quote|Comma|Period|Slash)$/
   ];
 
