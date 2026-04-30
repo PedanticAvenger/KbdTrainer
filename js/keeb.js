@@ -9,6 +9,7 @@
   // Options: window.KbdLayouts.pedanticCosmos, window.KbdLayouts.qwerty, etc.
   // ==========================================
   const keyboardLayout = window.KbdLayouts.pedantic_Cosmos;
+  const ONE_U_VERTICAL_ALIGNMENT = "bottom"; // top, middle, bottom
 
   const VALID_KEY_CODE_PATTERNS = [
     /^Key[A-Z]$/,
@@ -20,7 +21,7 @@
     // Added punctuation and symbol keys
     /^(Backquote|Minus|Equal|BracketLeft|BracketRight|Backslash|Semicolon|Colon|Quote|Comma|Period|Slash|IntlBackslash)$/,
     // Special keys that shouldn't ever register but want to place
-    /^(L1|L2|Unset)$/
+    /^(L1|L2|L2_Left|L2_Right|M_Left|M_Right|Scr_Left)$/
   ];
 
   let isValidKeyCode = function (code) {
@@ -148,11 +149,16 @@ let renderKey = function (keyDef) {
     let classes = ["key"];
     if (keyDef.isFiller) {
       classes = classes.concat(keyDef.classes || ["oneU", "filler"]);
+      if (keyDef.height) classes.push(keyDef.height);
       key.className = classes.join(" ");
       return key;
     }
 
     classes = classes.concat(keyDef.classes || [keyDef.width || "oneU"]);
+    if (keyDef.height) classes.push(keyDef.height);
+    if (keyDef.width === "oneU") {
+      classes.push(`align-${ONE_U_VERTICAL_ALIGNMENT}`);
+    }
     key.className = classes.join(" ");
     key.id = keyDef.code;
     key.dataset.keyCode = keyDef.code;
