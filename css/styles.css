@@ -67,27 +67,19 @@ body {
   color: #eceff4;
 }
 
+/* Modifed row properties for side-containers */
 .row {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start; /* Changed */
+  align-items: flex-start; /* Ensure taller keys align at the top */
   margin-top: 0.375vw;
   gap: 0.5vw;
   position: relative;
 }
 
 .row::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 0.15vw;
-  background: linear-gradient(to bottom, #4c566a, #434c5e, #4c566a);
-  box-shadow: 0 0 0.5vw rgba(136, 192, 208, 0.2);
-  margin-left: -0.075vw;
-  pointer-events: none;
+  display: none !important; /* Removed legacy split line */
 }
 
 .keyLabel {
@@ -98,39 +90,21 @@ body {
   font-size: 0.85vw;
 }
 
-.subLabel {
-  font-size: 0.65vw;
-  opacity: 0.75;
-  margin-top: 0.25vw;
+.layer1Label, .layer2Label {
+  position: absolute;
+  bottom: 0.25vw;
+  font-size: 0.6vw;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
-.keyActions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15vw;
-  margin-top: 0.3vw;
-  width: 100%;
+.layer1Label {
+  left: 0.35vw;
 }
 
-.keyAction {
-  display: flex;
-  justify-content: center;
-  gap: 0.3vw;
-  font-size: 0.55vw;
-  opacity: 0.85;
-  line-height: 1.1;
-}
-
-.outputLabel {
-  font-weight: 700;
-}
-
-.outputMeta {
-  color: #81a1c1;
-  font-size: 0.55vw;
-  opacity: 0.7;
-  text-transform: uppercase;
-}
+.layer2Label {
+  right: 0.35vw;
+}}
 
 .logger .show {
   opacity: 1;
@@ -138,13 +112,26 @@ body {
   transition: all 0.5s cubic-bezier(0.36, -0.64, 0.34, 1.76);
 }
 
+/* Modifed: Restored side-by-side gap and horizontal alignment */
 .keeb {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row; /* Split keyboard layout */
+  align-items: flex-start;
   justify-content: center;
-  gap: 0.25vw;
+  gap: 6vw; /* Gap between keyboard halves */
   width: 90%;
+}
+
+/* Added: Defines independent side containers */
+.side-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25vw;
+}
+
+/* Added: Ensures right side renders from outermost key first */
+.side-right .row {
+  flex-direction: row-reverse;
 }
 
 .alphaAfRowWrapper {
@@ -223,13 +210,6 @@ body {
   justify-content: space-around;
 }
 
-.cornerText {
-  position: absolute;
-  top: 0.2vw;
-  right: 0.3vw;
-  font-size: 0.75vw;
-}
-
 .key {
   display: flex;
   flex-direction: column;
@@ -300,9 +280,17 @@ body {
   height: 3vw;
 }
 
+/* Added extra height classes */
+.onePfiveUH {
+  height: 4.5vw;
+}
+
 .twoUH {
   height: 6vw;
-  line-height: 6vw;
+}
+
+.threeUH {
+  height: 9vw;
 }
 
 .raise {
@@ -386,58 +374,3 @@ body {
 }
 
 /*# sourceMappingURL=styles.css.map */
-
-/* Key Height Options */
-.onePtwofiveUH { height: 3.75vw; }
-.onePfiveUH { height: 4.5vw; }
-.onePsevenfiveUH { height: 5.25vw; }
-.twoPtwofiveUH { height: 6.75vw; }
-.twoPsevenfiveUH { height: 8.25vw; }
-.threeUH { height: 9vw; }
-.fourUH { height: 12vw; }
-.fiveUH { height: 15vw; }
-.sixPtwofiveUH { height: 18.75vw; }
-
-.keeb {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  gap: 6vw !important;
-  width: 100%;
-}
-
-.side-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.375vw;
-  align-items: center;
-}
-
-.side-right .row {
-  flex-direction: row-reverse;
-}
-
-.row {
-  display: flex;
-  gap: 0.5vw;
-  justify-content: flex-start;
-  align-items: flex-start; /* Important for keys with different heights */
-}
-
-.row::after {
-  display: none !important;
-}
-
-/* Height Classes */
-.oneUH { height: 3vw; }
-.onePtwofiveUH { height: 3.75vw; }
-.onePfiveUH { height: 4.5vw; }
-.onePsevenfiveUH { height: 5.25vw; }
-.twoUH { height: 6vw; }
-.twoPtwofiveUH { height: 6.75vw; }
-.twoPsevenfiveUH { height: 8.25vw; }
-.threeUH { height: 9vw; }
-.fourUH { height: 12vw; }
-.fiveUH { height: 15vw; }
-.sixPtwofiveUH { height: 18.75vw; }
