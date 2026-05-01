@@ -59,9 +59,9 @@ window.KbdLayouts = {
         right: [
           { code: "L2_Right", width: "oneU", labels: { base: "L2", shift: "L2", layer1: "", layer2: "" } },
           { code: "KeyH", width: "oneU", labels: { base: "h", shift: "H", layer1: "", layer2: "" } },
-          { code: "KeyJ", width: "oneU", labels: { base: "j", shift: "J", layer1: "", layer2: "4" } },
-          { code: "KeyK", width: "oneU", labels: { base: "k", shift: "K", layer1: "", layer2: "5" } },
-          { code: "KeyL", width: "oneU", labels: { base: "l", shift: "L", layer1: "", layer2: "6" } },
+          { code: "KeyJ", width: "oneU", labels: { base: "j", shift: "J", layer1: "←", layer2: "4" } },
+          { code: "KeyK", width: "oneU", labels: { base: "k", shift: "K", layer1: "↑", layer2: "5" } },
+          { code: "KeyL", width: "oneU", labels: { base: "l", shift: "L", layer1: "→", layer2: "6" } },
           { code: "Semicolon", width: "oneU", labels: { base: ";", shift: ":", layer1: "", layer2: "-" } },
           { code: "Quote", width: "oneU", labels: { base: "'", shift: "\"", layer1: "", layer2: "" } }
         ]
@@ -79,7 +79,7 @@ window.KbdLayouts = {
         right: [
           { code: "KeyN", width: "oneU", labels: { base: "n", shift: "N", layer1: "", layer2: "" } },
           { code: "KeyM", width: "oneU", labels: { base: "m", shift: "M", layer1: "", layer2: "1" } },
-          { code: "Comma", width: "oneU", labels: { base: ",", shift: "<", layer1: "", layer2: "2" } },
+          { code: "Comma", width: "oneU", labels: { base: ",", shift: "<", layer1: "↓", layer2: "2" } },
           { code: "Period", width: "oneU", labels: { base: ".", shift: ">", layer1: "", layer2: "3" } },
           { code: "Slash", width: "oneU", labels: { base: "/", shift: "?", layer1: "", layer2: "+" } },
           { code: "ShiftRight", width: "oneU", labels: { base: "Shift", shift: "Shift", layer1: "", layer2: "" } }
@@ -122,7 +122,7 @@ window.KbdLayouts = {
         left: [
           { classes: ["twoU", "key", "filler"], isFiller: true },
           { classes: ["twoU", "key", "filler"], isFiller: true },
-          { code: "MetaLeft", width: "oneU", labels: { base: "Win", shift: "Win", layer1: "", layer2: "" } },
+          { code: "OSLeft", width: "oneU", labels: { base: "Win", shift: "Win", layer1: "", layer2: "" } },
           { code: "ControlLeft", width: "oneU", labels: { base: "Ctrl", shift: "Ctrl", layer1: "", layer2: "" } },
           { code: "AltLeft", width: "oneU", labels: { base: "Alt", shift: "Alt", layer1: "", layer2: "" } }
         ],
@@ -234,11 +234,11 @@ window.KbdLayouts = {
       ],
       [
         { code: "ControlLeft", width: "onePfiveU", labels: { base: "Ctrl", shift: "Ctrl", layer1: "", layer2: "" } },
-        { code: "MetaLeft", width: "onePfiveU", labels: { base: "Win", shift: "Win", layer1: "", layer2: "" } },
+        { code: "OSLeft", width: "onePfiveU", labels: { base: "Win", shift: "Win", layer1: "", layer2: "" } },
         { code: "AltLeft", width: "onePfiveU", labels: { base: "Alt", shift: "Alt", layer1: "", layer2: "" } },
         { code: "Space", width: "sixPtwofiveU", labels: { base: "Space", shift: "Space", layer1: "", layer2: "" } },
         { code: "AltRight", width: "onePfiveU", labels: { base: "Alt", shift: "Alt", layer1: "", layer2: "" } },
-        { code: "MetaRight", width: "onePfiveU", labels: { base: "Win", shift: "Win", layer1: "", layer2: "" } },
+        { code: "OSRight", width: "onePfiveU", labels: { base: "Win", shift: "Win", layer1: "", layer2: "" } },
         { code: "ContextMenu", width: "onePfiveU", labels: { base: "Menu", shift: "Menu", layer1: "", layer2: "" } },
         { code: "ControlRight", width: "onePfiveU", labels: { base: "Ctrl", shift: "Ctrl", layer1: "", layer2: "" } },
         { classes: ["oneU", "key", "filler"], isFiller: true },

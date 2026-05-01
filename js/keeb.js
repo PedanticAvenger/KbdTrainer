@@ -19,7 +19,7 @@
     /^Numpad(?:[0-9]|Add|Subtract|Multiply|Divide|Decimal|Enter)$/, 
     /^F(?:[1-9]|1[0-2])$/,
     /^Arrow(?:Up|Down|Left|Right)$/,
-    /^(CapsLock|Tab|Enter|Backspace|Space|Escape|ShiftLeft|ShiftRight|ControlLeft|ControlRight|AltLeft|AltRight|MetaLeft|MetaRight|ContextMenu|Insert|Delete|Home|End|PageUp|PageDown|PrintScreen|ScrollLock|NumLock|Power)$/,
+    /^(CapsLock|Tab|Enter|Backspace|Space|Escape|ShiftLeft|ShiftRight|ControlLeft|ControlRight|AltLeft|AltRight|OSLeft|OSRight|ContextMenu|Insert|Delete|Home|End|PageUp|PageDown|PrintScreen|ScrollLock|NumLock|Power)$/,
     // Added punctuation and symbol keys
     /^(Backquote|Minus|Equal|BracketLeft|BracketRight|Backslash|Semicolon|Colon|Quote|Comma|Period|Slash|IntlBackslash)$/,
     // Special keys that shouldn't ever register but want to place
