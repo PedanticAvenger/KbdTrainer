@@ -72,9 +72,10 @@ body {
   gap: 0.25vw;
 }
 
-/* Added: Ensures right side renders from outermost key first */
+/* Right-side rows should justify to the right edge for natural split layout alignment */
 .side-right .row {
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 /* One-unit key vertical alignment helpers */

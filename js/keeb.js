@@ -186,6 +186,23 @@ let renderKey = function (keyDef) {
     return key;
   };
 
+  let getRowSides = function (row) {
+    if (!row) {
+      return { left: [], right: [] };
+    }
+
+    if (Array.isArray(row)) {
+      const mid = Math.ceil(row.length / 2);
+      return { left: row.slice(0, mid), right: row.slice(mid) };
+    }
+
+    // Right-side row definitions are now written in natural left-to-right order.
+    return {
+      left: Array.isArray(row.left) ? row.left : [],
+      right: Array.isArray(row.right) ? row.right : []
+    };
+  };
+
   // Added Logic: Render two independent halves using side containers
 let renderKeyboard = function () {
     const container = document.getElementById("keyboardContainer");
@@ -197,9 +214,7 @@ let renderKeyboard = function () {
     rightSide.className = "side-container side-right";
 
     keyboardLayout.rows.forEach((row) => {
-      const mid = Math.ceil(row.length / 2);
-      const leftKeys = row.slice(0, mid);
-      const rightKeys = row.slice(mid);
+      const { left: leftKeys, right: rightKeys } = getRowSides(row);
 
       const leftRowEl = document.createElement("div");
       leftRowEl.className = "row";
