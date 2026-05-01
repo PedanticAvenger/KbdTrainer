@@ -6,9 +6,11 @@
 
   // ==========================================
   // CONFIGURATION: Set your active layout here
-  // Options: window.KbdLayouts.pedanticCosmos, window.KbdLayouts.qwerty, etc.
+  // Options: window.KbdLayouts.pedanticCosmos, window.KbdLayouts.qwerty101, window.KbdLayouts.qwertyNoFRow, etc.
+  // Toggle the renderer between split and non-split keyboard display.
   // ==========================================
-  const keyboardLayout = window.KbdLayouts.pedantic_Cosmos;
+  const keyboardLayout = window.KbdLayouts.qwerty101;
+  const renderSplitLayout = false; // true = split halves, false = single non-split layout
   const ONE_U_VERTICAL_ALIGNMENT = "bottom"; // top, middle, bottom
 
   const VALID_KEY_CODE_PATTERNS = [
@@ -203,32 +205,56 @@ let renderKey = function (keyDef) {
     };
   };
 
-  // Added Logic: Render two independent halves using side containers
+  let getRowKeys = function (row) {
+    if (!row) return [];
+    if (Array.isArray(row)) return row;
+    return [].concat(
+      Array.isArray(row.left) ? row.left : [],
+      Array.isArray(row.right) ? row.right : []
+    );
+  };
+
+  // Added Logic: Render either a split or a single keyboard layout
 let renderKeyboard = function () {
     const container = document.getElementById("keyboardContainer");
     container.innerHTML = "";
 
-    const leftSide = document.createElement("div");
-    leftSide.className = "side-container side-left";
-    const rightSide = document.createElement("div");
-    rightSide.className = "side-container side-right";
+    if (renderSplitLayout) {
+      const leftSide = document.createElement("div");
+      leftSide.className = "side-container side-left";
+      const rightSide = document.createElement("div");
+      rightSide.className = "side-container side-right";
 
-    keyboardLayout.rows.forEach((row) => {
-      const { left: leftKeys, right: rightKeys } = getRowSides(row);
+      keyboardLayout.rows.forEach((row) => {
+        const { left: leftKeys, right: rightKeys } = getRowSides(row);
 
-      const leftRowEl = document.createElement("div");
-      leftRowEl.className = "row";
-      leftKeys.forEach((keyDef) => leftRowEl.appendChild(renderKey(keyDef)));
-      leftSide.appendChild(leftRowEl);
+        const leftRowEl = document.createElement("div");
+        leftRowEl.className = "row";
+        leftKeys.forEach((keyDef) => leftRowEl.appendChild(renderKey(keyDef)));
+        leftSide.appendChild(leftRowEl);
 
-      const rightRowEl = document.createElement("div");
-      rightRowEl.className = "row";
-      rightKeys.forEach((keyDef) => rightRowEl.appendChild(renderKey(keyDef)));
-      rightSide.appendChild(rightRowEl);
-    });
+        const rightRowEl = document.createElement("div");
+        rightRowEl.className = "row";
+        rightKeys.forEach((keyDef) => rightRowEl.appendChild(renderKey(keyDef)));
+        rightSide.appendChild(rightRowEl);
+      });
 
-    container.appendChild(leftSide);
-    container.appendChild(rightSide);
+      container.appendChild(leftSide);
+      container.appendChild(rightSide);
+    } else {
+      const singleSide = document.createElement("div");
+      singleSide.className = "side-container side-left";
+
+      keyboardLayout.rows.forEach((row) => {
+        const rowKeys = getRowKeys(row);
+        const rowEl = document.createElement("div");
+        rowEl.className = "row";
+        rowKeys.forEach((keyDef) => rowEl.appendChild(renderKey(keyDef)));
+        singleSide.appendChild(rowEl);
+      });
+
+      container.appendChild(singleSide);
+    }
 
     refreshKeyLabels();
   };
