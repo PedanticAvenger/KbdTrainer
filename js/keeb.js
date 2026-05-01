@@ -9,8 +9,8 @@
   // Options: window.KbdLayouts.pedanticCosmos, window.KbdLayouts.qwerty101, window.KbdLayouts.qwertyNoFRow, etc.
   // Toggle the renderer between split and non-split keyboard display.
   // ==========================================
-  const keyboardLayout = window.KbdLayouts.qwerty101;
-  const renderSplitLayout = false; // true = split halves, false = single non-split layout
+  const keyboardLayout = window.KbdLayouts.pedantic_Cosmos;
+  const renderSplitLayout = true; // true = split halves, false = single non-split layout
   const ONE_U_VERTICAL_ALIGNMENT = "bottom"; // top, middle, bottom
 
   const VALID_KEY_CODE_PATTERNS = [
@@ -218,6 +218,11 @@ let renderKey = function (keyDef) {
 let renderKeyboard = function () {
     const container = document.getElementById("keyboardContainer");
     container.innerHTML = "";
+
+    if (!keyboardLayout || !Array.isArray(keyboardLayout.rows)) {
+      console.error("Invalid keyboard layout selected:", keyboardLayout);
+      return;
+    }
 
     if (renderSplitLayout) {
       const leftSide = document.createElement("div");

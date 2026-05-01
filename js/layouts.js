@@ -137,6 +137,8 @@ window.KbdLayouts = {
     ]
   },
   qwerty101: {
+    // Rough and basic tkl layout to show how a standard layout could be setup, remember to toggle the variable in keeb.js to
+    // appropriately set split or not rendering.
     name: "Standard QWERTY 101",
     layers: ["base", "layer1", "layer2"],
     rows: [
@@ -172,6 +174,7 @@ window.KbdLayouts = {
         { code: "Minus", width: "oneU", labels: { base: "-", shift: "_", layer1: "", layer2: "" } },
         { code: "Equal", width: "oneU", labels: { base: "=", shift: "+", layer1: "", layer2: "" } },
         { code: "Backspace", width: "twoU", labels: { base: "BkSpc", shift: "BkSpc", layer1: "", layer2: "" } },
+        { classes: ["oneU", "key", "filler"], isFiller: true },
         { code: "Insert", width: "oneU", labels: { base: "Ins", shift: "Ins", layer1: "", layer2: "" } },
         { code: "Home", width: "oneU", labels: { base: "Home", shift: "Home", layer1: "", layer2: "" } },
         { code: "PageUp", width: "oneU", labels: { base: "PgUp", shift: "PgUp", layer1: "", layer2: "" } }
@@ -191,6 +194,7 @@ window.KbdLayouts = {
         { code: "BracketLeft", width: "oneU", labels: { base: "[", shift: "{", layer1: "", layer2: "" } },
         { code: "BracketRight", width: "oneU", labels: { base: "]", shift: "}", layer1: "", layer2: "" } },
         { code: "Backslash", width: "oneU", labels: { base: "\\", shift: "|", layer1: "", layer2: "" } },
+        { classes: ["oneU", "key", "filler"], isFiller: true },
         { code: "Delete", width: "oneU", labels: { base: "Del", shift: "Del", layer1: "", layer2: "" } },
         { code: "End", width: "oneU", labels: { base: "End", shift: "End", layer1: "", layer2: "" } },
         { code: "PageDown", width: "oneU", labels: { base: "PgDn", shift: "PgDn", layer1: "", layer2: "" } }
@@ -223,6 +227,9 @@ window.KbdLayouts = {
         { code: "Period", width: "oneU", labels: { base: ".", shift: ">", layer1: "", layer2: "" } },
         { code: "Slash", width: "oneU", labels: { base: "/", shift: "?", layer1: "", layer2: "" } },
         { code: "ShiftRight", width: "twoPtwofiveU", labels: { base: "Shift", shift: "Shift", layer1: "", layer2: "" } },
+        { classes: ["oneU", "key", "filler"], isFiller: true },
+        { classes: ["oneU", "key", "filler"], isFiller: true },
+        { classes: ["oneU", "key", "filler"], isFiller: true },
         { code: "ArrowUp", width: "oneU", labels: { base: "↑", shift: "↑", layer1: "", layer2: "" } }
       ],
       [
@@ -234,17 +241,11 @@ window.KbdLayouts = {
         { code: "MetaRight", width: "onePfiveU", labels: { base: "Win", shift: "Win", layer1: "", layer2: "" } },
         { code: "ContextMenu", width: "onePfiveU", labels: { base: "Menu", shift: "Menu", layer1: "", layer2: "" } },
         { code: "ControlRight", width: "onePfiveU", labels: { base: "Ctrl", shift: "Ctrl", layer1: "", layer2: "" } },
+        { classes: ["oneU", "key", "filler"], isFiller: true },
         { code: "ArrowLeft", width: "oneU", labels: { base: "←", shift: "←", layer1: "", layer2: "" } },
         { code: "ArrowDown", width: "oneU", labels: { base: "↓", shift: "↓", layer1: "", layer2: "" } },
         { code: "ArrowRight", width: "oneU", labels: { base: "→", shift: "→", layer1: "", layer2: "" } }
       ]
-    ]
-  },
-  qwertyNoFRow: {
-    name: "Standard QWERTY (110Key)",
-    layers: ["base", "layer1", "layer2"],
-    rows: [
-      // ... your QWERTY row arrays go here similar to above, etc. ...
     ]
   }
 };
